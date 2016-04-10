@@ -4,12 +4,12 @@
 CMD="docker run \
        --detach \
        --restart always \
-       --name configuration-server \
+       --name producer \
        --net "host" \
-       --env SPRING_CLOUD_CONSUL_HOST=192.168.1.227 \
+       --env SPRING_CLOUD_CONFIG_URI: http://192.168.1.229:63663 \
        --env JVM_JMX_HOST=192.168.1.227 \
        --env JVM_JMX_PORT=1999 \
-       kurron/docker-spring-cloud-configuration-server:1.0.4"
+       kurron/docker-rancher-simulation-producer:1.0.0"
 
 echo eval $CMD
 eval $CMD $*
